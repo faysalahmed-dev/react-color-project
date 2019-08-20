@@ -1,6 +1,46 @@
+$button-bg: rgba(255,255,255, .4);
+$more-bg : rgba(255,255,255, .4);
+
+@mixin moreBtn($pro) {
+      position: absolute;
+      #{$pro} : 0;
+      bottom: 0;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      padding: .5rem 1rem;
+      display: inline-block;
+}
+
 .color-box {
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      position: relative;
+	&__content {
+		
+	}
+	&__button {
+		padding: .7rem 2rem;
+		display: inline-block;
+		background: $button-bg;
+		outline: none;
+            border: none;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            font-family: inherit;
+            opacity: 0;
+            cursor: pointer;
+            transition: opacity .4s;
+	}
 	&__name {
+            @include moreBtn(left);
 	}
 	&__more-btn {
-	}
+            @include moreBtn(right);
+            line-height: 1.5;
+            background: $more-bg;
+      }
+      &:hover &__button{
+            opacity: 1;
+      }
 }

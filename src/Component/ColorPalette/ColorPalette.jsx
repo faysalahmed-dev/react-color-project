@@ -10,7 +10,7 @@ class ColorPalette extends Component {
 				{/* nav bar is here */}
 
 				<div className="palette__colors">
-					{this.props.colors.map(({ name, color }, idx) => <ColorBox name={name} color={color} key={idx} />)}
+					{this.props.colors.map(({ name, color }, idx) => <ColorBox name={name} background={color} key={idx} />)}
 				</div>
 
 				{/* footer here */}
