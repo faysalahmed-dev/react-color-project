@@ -1,46 +1,95 @@
-$button-bg: rgba(255,255,255, .4);
-$more-bg : rgba(255,255,255, .4);
+$white-light-bg: rgba(255, 255, 255, .4);
+$overlay-transition: all .5s ease-in-out;
+$transition-dur: .3s;
+$copy-mas-transition-del: .2s;
 
 @mixin moreBtn($pro) {
-      position: absolute;
-      #{$pro} : 0;
-      bottom: 0;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      padding: .5rem 1rem;
-      display: inline-block;
+	position: absolute;
+	#{$pro}: 0;
+	bottom: 0;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	padding: .5rem 1rem;
+	display: inline-block;
 }
-
 .color-box {
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      position: relative;
-	&__content {
-		
+	cursor: pointer;
+	position: relative;
+	&__overlay {
+            transform: scale(0.1);
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		&_show {
+			transition: $overlay-transition;
+			position: absolute;
+			z-index: 10;
+			transform: scale(50);
+		}
 	}
+	&__copied-mas {
+            color: #fff;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            transform: scale(0.1);
+            opacity: 0;
+            h1{
+                  font-size: 5rem;
+                  color: #fff;
+                  font-weight: 400;
+                  background: $white-light-bg;
+                  width: 100%;
+                  text-align: center;
+                  padding: .5rem 0;
+                  text-transform: uppercase;
+            }
+            p{
+                  font-size: 2.5rem;
+                  text-transform: uppercase;
+                  color: #fff;
+                  font-weight: 100;
+                  padding: 1rem 0;
+            }
+          &_show{
+                  transform: scale(1);
+                  opacity: 1;
+                  z-index: 25;
+                  transition: all $transition-dur $copy-mas-transition-del ease-in-out;
+          }
+      }
 	&__button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
 		padding: .7rem 2rem;
 		display: inline-block;
-		background: $button-bg;
+		background: $white-light-bg;
 		outline: none;
-            border: none;
-            font-size: 1.6rem;
-            line-height: 1.5;
-            font-family: inherit;
-            opacity: 0;
-            cursor: pointer;
-            transition: opacity .4s;
+		border: none;
+		font-size: 1.6rem;
+		line-height: 1.5;
+		font-family: inherit;
+		opacity: 0;
+		cursor: pointer;
+		transition: opacity $transition-dur;
 	}
 	&__name {
-            @include moreBtn(left);
+		@include moreBtn(left);
 	}
 	&__more-btn {
-            @include moreBtn(right);
-            line-height: 1.5;
-            background: $more-bg;
-      }
-      &:hover &__button{
-            opacity: 1;
-      }
+		@include moreBtn(right);
+		line-height: 1.5;
+		background: $white-light-bg;
+	}
+	&:hover &__button {
+		opacity: 1;
+	}
 }
