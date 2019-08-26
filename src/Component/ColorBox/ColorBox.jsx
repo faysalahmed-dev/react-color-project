@@ -10,7 +10,7 @@ class ColorBox extends Component {
 		this.setState({isCopied: true}, () => {
 			setTimeout(() => {
 				this.setState({isCopied:false})
-			}, 1500) 
+			}, 1200) 
 		})
 	}
 	render() {
