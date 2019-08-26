@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Slider from 'rc-slider';
-
 import ColorBox from '../ColorBox/ColorBox';
+import Header from '../Header/Header';
 
-import 'rc-slider/assets/index.css';
 import './ColorPalette.scss';
 
 class ColorPalette extends Component {
@@ -21,13 +19,7 @@ class ColorPalette extends Component {
 		const { colorShade } = this.state;
 		return (
 			<div className="palette">
-				<Slider
-					defaultValue={colorShade}
-					min={100}
-					max={900}
-					step={100}
-					onAfterChange={this.changeColorShade}
-				/>
+				<Header colorShade={colorShade} changeColorShade={this.changeColorShade} lavel={colorShade}/>
 				<div className="palette__colors">
 					{colors[colorShade].map(({ name, hex }, idx) => (
 						<ColorBox name={name} background={hex} key={idx} />
