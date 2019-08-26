@@ -1,9 +1,10 @@
 import React from 'react'
 import Slider from '../Slider/Slider'
+import ColorSelector from '../ColorFormateSelector/ColorSelector'
 import "./Header.scss"
 
 
-const Header = ({ colorShade, changeColorShade, lavel}) => {
+const Header = ({ colorShade, changeColorShade, lavel, changeFormat}) => {
      return (
           <header className="header">
                <div className="header__logo">
@@ -15,6 +16,7 @@ const Header = ({ colorShade, changeColorShade, lavel}) => {
                          <Slider colorShade={colorShade} changeColorShade={changeColorShade} />
                     </div>
                </div>
+               <ColorSelector changeFormat={changeFormat}/>
           </header>
      )
 }
