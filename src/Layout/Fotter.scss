@@ -1,0 +1,11 @@
+@import '../Sass/mixin';
+.fotter {
+     @include centerItem;
+     width: 100%;
+     height: var(--fotter-hieght);
+     justify-content: flex-end; 
+     p{
+          padding-right: 3rem;
+          font-size: 1.2rem;
+     }
+}

@@ -1,0 +1,17 @@
+@import '../../Sass/mixin';
+
+.format-selector {
+     @include centerItem;
+     margin-left: auto;
+     margin-right: 2.5rem;
+     height: 100%;
+     .MuiSelect-select:focus {
+          background: transparent;
+     }
+}
+
+.format-selector *,
+.MuiMenuItem-root {
+     font-size: 1.6rem !important;
+     font-family: inherit !important;
+}

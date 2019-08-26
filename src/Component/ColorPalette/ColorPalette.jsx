@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ColorBox from '../ColorBox/ColorBox';
 import Header from '../Header/Header';
+import ColorBox from '../ColorBox/ColorBox';
+import Fotter from '../../Layout/Fotter';
 
 import './ColorPalette.scss';
-import { tsThisType } from '@babel/types';
 
 class ColorPalette extends Component {
 	constructor(props) {
@@ -14,19 +14,20 @@ class ColorPalette extends Component {
 		};
 	}
 	changeFormat = (value) => {
-		this.setState({format: value})
-	}
+		this.setState({ format: value });
+	};
 
 	changeColorShade = (colorShade) => {
 		this.setState({ colorShade });
 	};
 	render() {
-		const { colors } = this.props.palette;
+		const { colors, paletteName, emoji } = this.props.palette;
 		const { colorShade, format } = this.state;
 		return (
 			<div className="palette">
-				<Header colorShade={colorShade} 
-					changeColorShade={this.changeColorShade} 
+				<Header
+					colorShade={colorShade}
+					changeColorShade={this.changeColorShade}
 					lavel={colorShade}
 					changeFormat={this.changeFormat}
 				/>
@@ -35,8 +36,7 @@ class ColorPalette extends Component {
 						<ColorBox name={color.name} background={color[format]} key={idx} />
 					))}
 				</div>
-
-				{/* footer here */}
+				<Fotter name={paletteName} emoji={emoji}/>
 			</div>
 		);
 	}
