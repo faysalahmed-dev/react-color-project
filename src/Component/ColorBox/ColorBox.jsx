@@ -14,13 +14,13 @@ class ColorBox extends Component {
 		});
 	};
 	handleMore = (e) => {
-		const { history, location, id} = this.props;
+		const { history, location, id } = this.props;
 		e.stopPropagation();
 		history.push(`${location.pathname}/${id}`);
 	};
 	render() {
 		const { name, background } = this.props;
-	
+		console.log(this.props);
 		const { isCopied } = this.state;
 		return (
 			<CopyToClipboard text={background} onCopy={this.handleClick}>
@@ -38,9 +38,11 @@ class ColorBox extends Component {
 					<div className="color-box__content">
 						<span className="color-box__name">{name}</span>
 						<button className="color-box__button">copy</button>
-						<span className="color-box__more-btn" onClick={this.handleMore}>
-							More
-						</span>
+						{this.props.link && (
+							<span className="color-box__more-btn" onClick={this.handleMore}>
+								More
+							</span>
+						)}
 					</div>
 				</div>
 			</CopyToClipboard>

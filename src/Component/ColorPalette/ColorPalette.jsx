@@ -33,7 +33,7 @@ class ColorPalette extends Component {
 				/>
 				<div className="palette__colors">
 					{colors[colorShade].map((color) => (
-						<ColorBox name={color.name} background={color[format]} key={color.id} id={color.id} />
+						<ColorBox name={color.name} background={color[format]} key={color.id} id={color.id} link />
 					))}
 				</div>
 				<Fotter name={paletteName} emoji={emoji} />
