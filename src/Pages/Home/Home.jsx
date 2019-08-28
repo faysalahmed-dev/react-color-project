@@ -25,23 +25,14 @@ const styles = {
 	}
 };
 
-const Home = (props) => {
-	const { palette, classes } = props;
-	return (
+const Home = ({ palette, classes } ) =>(
 		<div className={classes.root}>
 			<div className={classes.container}>
 				<nav className={classes.nav} />
 				<div className={classes.list}>
-					{palette.map(({ id, ...others }) => <PaletteList key={id} {...others} />)}
+					{palette.map(({id,...others }) => <PaletteList key={id} {...others} id={id} />)}
 				</div>
 			</div>
 		</div>
 	);
-};
 export default withStyles(styles)(Home);
-
-{
-	/* <Link to={`/palette/${id}`}>
-     {paletteName} <span>{emoji}</span>
-</Link> */
-}

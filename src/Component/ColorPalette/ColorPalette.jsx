@@ -22,7 +22,6 @@ class ColorPalette extends Component {
 	};
 	render() {
 		const { colors, paletteName, emoji } = this.props.palette;
-		console.log(colors);
 		const { colorShade, format } = this.state;
 		return (
 			<div className="palette">
@@ -33,8 +32,8 @@ class ColorPalette extends Component {
 					changeFormat={this.changeFormat}
 				/>
 				<div className="palette__colors">
-					{colors[colorShade].map((color, idx) => (
-						<ColorBox name={color.name} background={color[format]} key={idx} />
+					{colors[colorShade].map((color) => (
+						<ColorBox name={color.name} background={color[format]} key={color.id} id={color.id} />
 					))}
 				</div>
 				<Fotter name={paletteName} emoji={emoji} />
