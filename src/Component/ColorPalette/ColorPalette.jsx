@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
-import ColorBox from '../ColorBox/ColorBox';
-import Fotter from '../../Layout/Fotter';
+import Header from '../../Layout/Header/Header';
+import MainColorSection from '../../Layout/MainColorSection/MainColorSection';
+import Fotter from '../../Layout/Fotter/Fotter';
 
 import './ColorPalette.scss';
 
@@ -30,12 +30,9 @@ class ColorPalette extends Component {
 					changeColorShade={this.changeColorShade}
 					lavel={colorShade}
 					changeFormat={this.changeFormat}
+					showSlider
 				/>
-				<div className="palette__colors">
-					{colors[colorShade].map((color) => (
-						<ColorBox name={color.name} background={color[format]} key={color.id} id={color.id} link />
-					))}
-				</div>
+				<MainColorSection colors={colors[colorShade]} format={format} link />
 				<Fotter name={paletteName} emoji={emoji} />
 			</div>
 		);

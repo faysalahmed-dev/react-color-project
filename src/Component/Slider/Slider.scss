@@ -1,3 +1,17 @@
+@import '../../Sass/mixin';
+.color-slider {
+	@include centerItem;
+	&__lavel-text {
+		font-size: 1.6rem;
+		margin: 0 1rem;
+	}
+	&__container {
+		@include centerItem;
+		width: 30rem;
+		padding: 0 1rem;
+	}
+}
+
 .rc-slider-rail {
 	height: .8rem;
 }

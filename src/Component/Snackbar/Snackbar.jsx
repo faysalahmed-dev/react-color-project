@@ -18,7 +18,7 @@ const SnackbarCom = ({open,handleClose,format}) => {
                     ContentProps={{
                          'aria-describedby': 'message-id',
                     }}
-                    message={<span id="message-id">Formate Change! {format}</span>}
+                    message={<span id="message-id">Formate Change! {format.toUpperCase()}</span>}
                     action={[
                          <IconButton
                               key="close"

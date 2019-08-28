@@ -3,3 +3,12 @@
      justify-content: center;
      align-items: center;
 }
+@mixin moreBtn($pro) {
+	position: absolute;
+	#{$pro}: 0;
+	bottom: 0;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	padding: .5rem 1rem;
+	display: inline-block;
+}

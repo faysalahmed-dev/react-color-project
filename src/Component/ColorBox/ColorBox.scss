@@ -3,48 +3,39 @@ $overlay-transition: all .5s ease-in-out;
 $transition-dur: .3s;
 $copy-mas-transition-del: .2s;
 
-@mixin moreBtn($pro) {
-	position: absolute;
-	#{$pro}: 0;
-	bottom: 0;
-	font-size: 1.2rem;
-	text-transform: uppercase;
-	padding: .5rem 1rem;
-	display: inline-block;
-}
+@import '../../Sass/mixin';
+
 .color-box {
 	cursor: pointer;
 	position: relative;
 	&__overlay {
-            transform: scale(0.1);
+          transform: scale(0.1);
 		width: 100%;
 		height: 100%;
 		z-index: 0;
 		&_show {
-			transition: $overlay-transition;
+			transition: var(--overlay-transition);
 			position: absolute;
 			z-index: 10;
 			transform: scale(50);
 		}
 	}
 	&__copied-mas {
-            color: #fff;
-            position: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            transform: scale(0.1);
-            opacity: 0;
+			color: #fff;
+			position: fixed;
+			@include centerItem;
+			flex-direction: column;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			transform: scale(0.1);
+			opacity: 0;
             h1{
                   font-size: 5rem;
                   color: #fff;
                   font-weight: 400;
-                  background: $white-light-bg;
+                  background: var(--white-light-bg);
                   width: 100%;
                   text-align: center;
                   padding: .5rem 0;
@@ -61,17 +52,17 @@ $copy-mas-transition-del: .2s;
                   transform: scale(1);
                   opacity: 1;
                   z-index: 25;
-                  transition: all $transition-dur $copy-mas-transition-del ease-in-out;
+                  transition: all var(--transition-dur) var(--copy-mas-transition-del) ease-in-out;
           }
       }
 	&__button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
 		padding: .7rem 2rem;
 		display: inline-block;
-		background: $white-light-bg;
+		background: var(--white-light-bg);
 		outline: none;
 		border: none;
 		font-size: 1.6rem;
@@ -87,7 +78,7 @@ $copy-mas-transition-del: .2s;
 	&__more-btn {
 		@include moreBtn(right);
 		line-height: 1.5;
-		background: $white-light-bg;
+		background: var(--white-light-bg);
 	}
 	&:hover &__button {
 		opacity: 1;
