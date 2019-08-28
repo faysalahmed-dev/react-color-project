@@ -9,7 +9,7 @@ class ColorPalette extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			colorShade: 800,
+			colorShade: 500,
 			format: 'hex'
 		};
 	}
@@ -22,6 +22,7 @@ class ColorPalette extends Component {
 	};
 	render() {
 		const { colors, paletteName, emoji } = this.props.palette;
+		console.log(colors);
 		const { colorShade, format } = this.state;
 		return (
 			<div className="palette">
@@ -36,7 +37,7 @@ class ColorPalette extends Component {
 						<ColorBox name={color.name} background={color[format]} key={idx} />
 					))}
 				</div>
-				<Fotter name={paletteName} emoji={emoji}/>
+				<Fotter name={paletteName} emoji={emoji} />
 			</div>
 		);
 	}
