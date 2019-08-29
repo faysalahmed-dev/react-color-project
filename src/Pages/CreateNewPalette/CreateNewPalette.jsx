@@ -17,8 +17,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import {Button} from '@material-ui/core'
 
-const drawerWidth = 240;
+
+import ColorPiker from '../../Component/ColorPiker/ColorPiker'
+
+const drawerWidth = 300;
 
 const styles = (theme) => ({
 	root: {
@@ -78,15 +82,25 @@ const styles = (theme) => ({
 
 class CreateNewPalette extends React.Component {
 	state = {
-		open: false
+          open: false,
+          curColor : 'purple',
+          colorList : ['teal','purple','tomato','black']
 	};
 	handleDrawerOpen = () => this.setState({ open: true });
 
-	handleDrawerClose = () => this.setState({ open: false });
-
+     handleDrawerClose = () => this.setState({ open: false });
+     
+     handleChange = (newColor) => {
+          this.setState({curColor: newColor.hex})
+     }
+     handleAddColor = () => {
+          this.setState({
+               colorList : [...this.state.colorList,this.state.curColor]
+          })
+     }
 	render() {
 		const { classes } = this.props;
-		const { open } = this.state;
+		const { open, curColor } = this.state;
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -106,7 +120,7 @@ class CreateNewPalette extends React.Component {
                               >
 					          <MenuIcon />
 					     </IconButton>
-					     <Typography variant="h6" noWrap>
+					     <Typography variant="h2" noWrap>
 						     Persistent drawer
 					     </Typography>
 					</Toolbar>
@@ -125,6 +139,15 @@ class CreateNewPalette extends React.Component {
                                    {withStyles.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                               </IconButton>
                          </div>
+                         <Typography variant="h3" noWrap>
+                              Create Your Own Palette
+					</Typography>
+                         <div>
+                              <Button variant="contained" color="secondary">Clear Palette</Button>
+                              <Button variant="contained" color="primary">Random Color</Button>
+                         </div>
+                         <ColorPiker color={curColor} handleChange={this.handleChange}/>
+                         <Button variant="contained" style={{background: curColor}} onClick={this.handleAddColor}>Add Color</Button>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {
@@ -132,6 +155,9 @@ class CreateNewPalette extends React.Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
+                         <ul>
+                              {this.state.colorList.map(color => (<li style={{backgroundColor: color}}>{color}</li>) )}
+                         </ul>
 				</main>
 			</div>
 		);
