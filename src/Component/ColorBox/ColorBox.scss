@@ -21,7 +21,6 @@ $copy-mas-transition-del: .2s;
 		}
 	}
 	&__copied-mas {
-			color: #fff;
 			position: fixed;
 			@include centerItem;
 			flex-direction: column;
@@ -31,22 +30,18 @@ $copy-mas-transition-del: .2s;
 			right: 0;
 			transform: scale(0.1);
 			opacity: 0;
+			text-align: center;
+			text-transform: uppercase;
             h1{
                   font-size: 5rem;
-                  color: #fff;
                   font-weight: 400;
                   background: var(--white-light-bg);
                   width: 100%;
-                  text-align: center;
                   padding: .5rem 0;
-                  text-transform: uppercase;
             }
             p{
-                  font-size: 2.5rem;
-                  text-transform: uppercase;
-                  color: #fff;
-                  font-weight: 100;
-                  padding: 1rem 0;
+               font-size: 2.5rem;
+               padding: 1rem 0;
             }
           &_show{
                   transform: scale(1);
