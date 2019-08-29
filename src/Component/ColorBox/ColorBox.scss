@@ -1,8 +1,3 @@
-$white-light-bg: rgba(255, 255, 255, .4);
-$overlay-transition: all .5s ease-in-out;
-$transition-dur: .3s;
-$copy-mas-transition-del: .2s;
-
 @import '../../Sass/mixin';
 
 .color-box {
@@ -65,7 +60,7 @@ $copy-mas-transition-del: .2s;
 		font-family: inherit;
 		opacity: 0;
 		cursor: pointer;
-		transition: opacity $transition-dur;
+		transition: opacity var(--transition-dur);
 	}
 	&__name {
 		@include moreBtn(left);

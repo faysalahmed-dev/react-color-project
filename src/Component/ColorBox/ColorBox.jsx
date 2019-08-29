@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/styles';
 import Chroma from 'chroma-js';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { withRouter } from 'react-router-dom';
 import './ColorBox.scss';
 
-const styles = {};
 
 class ColorBox extends Component {
 	state = {
@@ -27,7 +25,8 @@ class ColorBox extends Component {
 	render() {
 		const { name, background } = this.props;
 		const { isCopied } = this.state;
-		const textColor = Chroma(background).luminance() >= 0.09 ? 'var(--font-dark)' : 'var(--font-white)';
+		const textColor = Chroma(background).luminance() >= 0.09 ? 
+							'var(--font-dark)' : 'var(--font-white)';
 		return (
 			<CopyToClipboard text={background} onCopy={this.handleClick}>
 				<div className="color-box" style={{ background }}>
@@ -63,4 +62,4 @@ class ColorBox extends Component {
 		);
 	}
 }
-export default withRouter(withStyles(styles)(ColorBox));
+export default withRouter(ColorBox);

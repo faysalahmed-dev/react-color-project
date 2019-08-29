@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './Pages/Home/Home';
 import ColorPalette from './Component/ColorPalette/ColorPalette';
+import CreateNewPalette from './Pages/CreateNewPalette/CreateNewPalette'
 import SeedColors from './SeedColors';
 import ColorShadGenerator from './HelperColors/HelperColors';
 import { findPalette } from './HelperColors/FindPaletteHelper';
@@ -12,6 +13,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<Switch>
+				<Route exact path="/createpalette" render={() => <CreateNewPalette />} />
 				<Route exact path="/" render={(routingOpt) => <Home palette={SeedColors} {...routingOpt} />} />
 				<Route
 					exact
