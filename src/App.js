@@ -20,25 +20,28 @@ class App extends Component {
 		this.setState({ colorPalette: [ ...this.state.colorPalette, newPalette ] });
 	};
 	render() {
+		const {colorPalette} = this.state
 		return (
 			<div className="App">
 				<Switch>
 					<Route
 						exact
 						path="/createpalette"
-						render={() => <CreateNewPalette handleSave={this.handleCreatePalette} />}
+						render={() => <CreateNewPalette handleSave={this.handleCreatePalette} 
+						paletteList={colorPalette}
+						/>}
 					/>
 					<Route
 						exact
 						path="/"
-						render={(routingOpt) => <Home palette={this.state.colorPalette} {...routingOpt} />}
+						render={(routingOpt) => <Home palette={colorPalette} {...routingOpt} />}
 					/>
 					<Route
 						exact
 						path="/palette/:id"
 						render={({ match }) => (
 							<ColorPalette
-								palette={ColorShadGenerator(findPalette(this.state.colorPalette, match.params.id))}
+								palette={ColorShadGenerator(findPalette(colorPalette, match.params.id))}
 							/>
 						)}
 					/>
@@ -48,7 +51,7 @@ class App extends Component {
 						render={({ match }) => (
 							<SinglePalette
 								palette={ColorShadGenerator(
-									findPalette(this.state.colorPalette, match.params.paletteId)
+									findPalette(colorPalette, match.params.paletteId)
 								)}
 								id={match.params.id}
 							/>

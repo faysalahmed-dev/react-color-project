@@ -17,7 +17,6 @@ import Form from '../../Component/Form/Form';
 
 import ColorPiker from '../../Component/ColorPiker/ColorPiker';
 import ColorBoxList from '../../Component/ColorBoxList/ColorBoxList';
-import { purple } from '@material-ui/core/colors';
 
 const drawerWidth = 300;
 const topBar = '64px';
@@ -82,9 +81,9 @@ const styles = (theme) => ({
 class CreateNewPalette extends React.Component {
 	state = {
 		open: false,
-		name: 'purple',
-		curColor: 'purple',
-		colorList: [ { name: 'teal', color: 'teal' }, { name: 'red', color: 'red' }, { name: 'black', color: 'black' } ]
+		name: '',
+		curColor: '',
+		colorList: []
 	};
 	handleDrawerOpen = () => this.setState({ open: true });
 
@@ -97,19 +96,17 @@ class CreateNewPalette extends React.Component {
 			this.setState({ colorList: [ ...this.state.colorList, { name: name, color: this.state.curColor } ] });
 		});
 	};
-	handleSave = () => {
-		const paletteName = 'new test color paltte';
-		const id = paletteName.toLowerCase().replace(/\s/g, '-');
+	handleSave = (paletteName) => {
 		const palette = {
 			paletteName,
-			id,
+			id: paletteName.toLowerCase().replace(/\s/g, '-'),
 			colors: this.state.colorList
 		};
 		this.props.handleSave(palette);
 		this.props.history.push('/');
 	};
 	render() {
-		const { classes } = this.props;
+		const { paletteList, classes } = this.props;
 		const { open, curColor, colorList } = this.state;
 		return (
 			<div className={classes.root}>
@@ -133,9 +130,8 @@ class CreateNewPalette extends React.Component {
 						<Typography variant="h5" noWrap>
 							Persistent drawer
 						</Typography>
-						<Button variant="contained" color="secondary" onClick={this.handleSave}>
-							Save
-						</Button>
+						<Form colorList={paletteList} handleSave={this.handleSave} type="app" rule='Save'/>
+						/>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -165,7 +161,7 @@ class CreateNewPalette extends React.Component {
 					</div>
 					<ColorPiker color={curColor} handleChange={this.handleChange} />
 
-					<Form curColor={curColor} colorList={colorList} addColor={this.handleAddColor} />
+					<Form curColor={curColor} colorList={colorList} addColor={this.handleAddColor} type="dr" rule="Add Color"/>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {

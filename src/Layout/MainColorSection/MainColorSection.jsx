@@ -7,7 +7,7 @@ import './MainColor.scss';
 const mainColorSection = (props) => {
 	const { colors, format, link, rows } = props
 	return (
-		<div className="main-color-section" style={{gridTemplateRows: `${rows}%`}}>
+		<div className="main-color-section" style={{gridAutoRows: `${rows}%`}}>
 			{colors.map((color) => (
 				<ColorBox name={color.name} background={color[format]} key={color.name} id={color.id} link={link} />
 			))}
