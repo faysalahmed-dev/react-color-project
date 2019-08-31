@@ -1,0 +1,30 @@
+.dragable-color-box {
+     display: flex;
+     align-items: flex-end;
+     div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: .5rem 1rem;
+          span {
+               display: inline-block;    
+               font-size: 1.6rem;
+               color: #fff;
+               * {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    display: inline-block;
+               }
+          }
+          .delete-btn{
+              font-size: 2rem;
+              cursor: pointer;
+              transition: all .2s;
+              &:hover {
+                   transform: scale(1.2);
+              }
+          }
+     }
+}

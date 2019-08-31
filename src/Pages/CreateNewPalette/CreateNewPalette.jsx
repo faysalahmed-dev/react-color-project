@@ -96,6 +96,11 @@ class CreateNewPalette extends React.Component {
 			this.setState({ colorList: [ ...this.state.colorList, { name: name, color: this.state.curColor } ] });
 		});
 	};
+	handleRemove = (boxName) => {
+		this.setState({
+			colorList: this.state.colorList.filter(color => color.name !== boxName)
+		})
+	}
 	handleSave = (paletteName) => {
 		const palette = {
 			paletteName,
@@ -131,7 +136,6 @@ class CreateNewPalette extends React.Component {
 							Persistent drawer
 						</Typography>
 						<Form colorList={paletteList} handleSave={this.handleSave} type="app" rule='Save'/>
-						/>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -169,7 +173,7 @@ class CreateNewPalette extends React.Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-					<ColorBoxList colors={this.state.colorList} />
+					<ColorBoxList colors={this.state.colorList} removeBox={this.handleRemove} />
 				</main>
 			</div>
 		);
