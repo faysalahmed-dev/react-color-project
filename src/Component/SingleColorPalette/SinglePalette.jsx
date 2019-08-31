@@ -37,7 +37,7 @@ class SinglePalette extends Component {
 		return (
 			<div className={this.props.classes.root}>
 				<Header showSlider={false} changeFormat={this.changeFormat} />
-				<MainColorSection colors={this.shade} format={format} link={false}>
+				<MainColorSection colors={this.shade} format={format} link={false} rows={50}>
 					<div className="go-back">
 						<button onClick={this.handleGoBack}>
 							Go Back

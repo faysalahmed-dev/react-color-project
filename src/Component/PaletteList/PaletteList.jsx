@@ -27,8 +27,7 @@ const styles = {
 		gridAutoRows: '25%',
 		borderRadius: '.3rem',
 		overflow: 'hidden'
-	},
-	minBox: {}
+	}
 };
 
 const paletteList = ({ id, paletteName, emoji, colors, classes, history }) => {

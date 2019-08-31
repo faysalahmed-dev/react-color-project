@@ -32,7 +32,7 @@ class ColorPalette extends Component {
 					changeFormat={this.changeFormat}
 					showSlider
 				/>
-				<MainColorSection colors={colors[colorShade]} format={format} link />
+				<MainColorSection colors={colors[colorShade]} format={format} link rows={25}/>
 				<Fotter name={paletteName} emoji={emoji} />
 			</div>
 		);
