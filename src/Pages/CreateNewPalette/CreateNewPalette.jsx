@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Button } from '@material-ui/core';
+import {arrayMove} from 'react-sortable-hoc';
 
 import Form from '../../Component/Form/Form';
 
@@ -83,7 +84,18 @@ class CreateNewPalette extends React.Component {
 		open: false,
 		name: '',
 		curColor: '',
-		colorList: []
+		colorList: [{ name: "red", color: "#F44336" },
+			{ name: "pink", color: "#E91E63" },
+			{ name: "purple", color: "#9C27B0" },
+			{ name: "deeppurple", color: "#673AB7" },
+			{ name: "indigo", color: "#3F51B5" },
+			{ name: "blue", color: "#2196F3" },
+			{ name: "lightblue", color: "#03A9F4" },
+			{ name: "cyan", color: "#00BCD4" },
+			{ name: "teal", color: "#009688" },
+			{ name: "green", color: "#4CAF50" },
+			{ name: "lightgreen", color: "#8BC34A" },
+			]
 	};
 	handleDrawerOpen = () => this.setState({ open: true });
 
@@ -109,6 +121,11 @@ class CreateNewPalette extends React.Component {
 		};
 		this.props.handleSave(palette);
 		this.props.history.push('/');
+	};
+	onSortEnd = ({ oldIndex, newIndex }) => {
+		this.setState(({ colorList }) => ({
+			colorList: arrayMove(colorList, oldIndex, newIndex),
+		}));
 	};
 	render() {
 		const { paletteList, classes } = this.props;
@@ -173,7 +190,7 @@ class CreateNewPalette extends React.Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-					<ColorBoxList colors={this.state.colorList} removeBox={this.handleRemove} />
+					<ColorBoxList colors={this.state.colorList} removeBox={this.handleRemove} axis="xy" onSortEnd={this.onSortEnd}/>
 				</main>
 			</div>
 		);
