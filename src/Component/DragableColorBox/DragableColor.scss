@@ -1,6 +1,7 @@
 .dragable-color-box {
      display: flex;
      align-items: flex-end;
+     cursor: grab;
      div {
           display: flex;
           justify-content: space-between;
@@ -19,12 +20,15 @@
                }
           }
           .delete-btn{
-              font-size: 2rem;
+              font-size: 2.5rem;
               cursor: pointer;
               transition: all .2s;
-              &:hover {
-                   transform: scale(1.2);
-              }
           }
+     }
+     &:active {
+          cursor: grab;
+     }
+     &:hover .delete-btn{
+         transform: scale(1.2);
      }
 }

@@ -80,6 +80,9 @@ const styles = (theme) => ({
 });
 
 class CreateNewPalette extends React.Component {
+	static defaultProps = {
+		maxColorBoxLength : 20
+	}
 	state = {
 		open: false,
 		name: '',
@@ -127,9 +130,18 @@ class CreateNewPalette extends React.Component {
 			colorList: arrayMove(colorList, oldIndex, newIndex),
 		}));
 	};
+	clearPalette = () => {
+		this.setState({colorList : []})
+	}
+	randomColor = () => {
+		const colorArry = this.props.paletteList.map(pl => pl.colors).flat()
+		const rNum = Math.floor(Math.random() * colorArry.length)
+		this.setState({colorList :[ ...this.state.colorList,colorArry[rNum]]})
+	}
 	render() {
-		const { paletteList, classes } = this.props;
+		const { paletteList, classes, maxColorBoxLength } = this.props;
 		const { open, curColor, colorList } = this.state;
+		const isFull =colorList.length >= maxColorBoxLength
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -173,16 +185,29 @@ class CreateNewPalette extends React.Component {
 						Create Your Own Palette
 					</Typography>
 					<div>
-						<Button variant="contained" color="secondary">
+						<Button variant="contained" 
+							color="secondary" 
+							onClick={this.clearPalette} 
+							>
 							Clear Palette
 						</Button>
-						<Button variant="contained" color="primary">
+						<Button variant="contained" 
+							color="primary" 
+							onClick={this.randomColor}
+							disabled={isFull}
+						>
 							Random Color
 						</Button>
 					</div>
 					<ColorPiker color={curColor} handleChange={this.handleChange} />
 
-					<Form curColor={curColor} colorList={colorList} addColor={this.handleAddColor} type="dr" rule="Add Color"/>
+					<Form curColor={curColor} 
+						colorList={colorList} 
+						addColor={this.handleAddColor} 
+						type="dr" 
+						rule="Add Color"
+						disabled={isFull}
+					/>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {

@@ -60,13 +60,13 @@ class Form extends Component {
 	};
 	render() {
 		const { name, error, errorMes } = this.state;
-		const { curColor, rule } = this.props;
+          const { curColor, rule, disabled } = this.props;
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
 					<TextField id="standard-name" value={name} onChange={this.handleChange} margin="normal" />
 					{error && <p>{errorMes}</p>}
-					<Button variant="contained" style={{ background: curColor }} color="secondary" type="submit">
+                         <Button variant="contained" style={{ background: curColor }} color="secondary" type="submit" disabled={disabled}>
 						{rule}
 					</Button>
 				</form>
