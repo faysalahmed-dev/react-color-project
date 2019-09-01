@@ -13,11 +13,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Button } from '@material-ui/core';
 import {arrayMove} from 'react-sortable-hoc';
-
 import Form from '../../Component/Form/Form';
-
 import ColorPiker from '../../Component/ColorPiker/ColorPiker';
 import ColorBoxList from '../../Component/ColorBoxList/ColorBoxList';
+
+import './CreactNewPalette.scss'
 
 const drawerWidth = 300;
 const topBar = '64px';
@@ -63,7 +63,6 @@ const styles = (theme) => ({
 	content: {
 		flexGrow: 1,
 		height: `calc(100vh - ${topBar})`,
-		// padding: theme.spacing(3),
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen
@@ -76,6 +75,9 @@ const styles = (theme) => ({
 			duration: theme.transitions.duration.enteringScreen
 		}),
 		marginLeft: 0
+	},
+	some : {
+		boxShadow: 'none'
 	}
 });
 
@@ -84,7 +86,7 @@ class CreateNewPalette extends React.Component {
 		maxColorBoxLength : 20
 	}
 	state = {
-		open: false,
+		open: true,
 		name: '',
 		curColor: '',
 		colorList: [{ name: "red", color: "#F44336" },
@@ -125,6 +127,9 @@ class CreateNewPalette extends React.Component {
 		this.props.handleSave(palette);
 		this.props.history.push('/');
 	};
+	handleGoBack = () => {
+		this.props.history.push('/')
+	}
 	onSortEnd = ({ oldIndex, newIndex }) => {
 		this.setState(({ colorList }) => ({
 			colorList: arrayMove(colorList, oldIndex, newIndex),
@@ -146,6 +151,7 @@ class CreateNewPalette extends React.Component {
 			<div className={classes.root}>
 				<CssBaseline />
 				<AppBar
+					color="default"
 					position="fixed"
 					className={clsx(classes.appBar, {
 						[classes.appBarShift]: open
@@ -165,6 +171,10 @@ class CreateNewPalette extends React.Component {
 							Persistent drawer
 						</Typography>
 						<Form colorList={paletteList} handleSave={this.handleSave} type="app" rule='Save'/>
+						<Button variant="contained"
+							color="primary"
+							onClick={this.handleGoBack}
+						>Go Back</Button>
 					</Toolbar>
 				</AppBar>
 				<Drawer
