@@ -3,12 +3,8 @@ import { withRouter } from 'react-router-dom';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Button } from '@material-ui/core';
@@ -28,26 +24,7 @@ const styles = (theme) => ({
 	root: {
 		display: 'flex'
 	},
-	appBar: {
-		transition: theme.transitions.create([ 'margin', 'width' ], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen
-		})
-	},
-	appBarShift: {
-		width: `calc(100% - ${drawerWidth}px)`,
-		marginLeft: drawerWidth,
-		transition: theme.transitions.create([ 'margin', 'width' ], {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen
-		})
-	},
-	menuButton: {
-		marginRight: theme.spacing(2)
-	},
-	hide: {
-		display: 'none'
-	},
+	
 	drawer: {
 		width: drawerWidth,
 		flexShrink: 0
@@ -148,12 +125,11 @@ class CreateNewPalette extends React.Component {
 		const isFull =colorList.length >= maxColorBoxLength
 		return (
 			<div className={classes.root}>
-				<NavBar classes={classes} 
-					handleDrawerOpen={this.handleDrawerOpen} 
+				<NavBar handleDrawerOpen={this.handleDrawerOpen} 
 					colorList={paletteList} 
 					open={open}
-					handleSave={this.handleSave}
-				/>
+					handleSave={this.handleSave}/>
+
 				<Drawer
 					className={classes.drawer}
 					variant="persistent"
@@ -168,33 +144,45 @@ class CreateNewPalette extends React.Component {
 							{withStyles.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
 						</IconButton>
 					</div>
-					<Typography variant="h5" noWrap>
-						Create Your Own Palette
-					</Typography>
-					<div>
-						<Button variant="contained" 
-							color="secondary" 
-							onClick={this.clearPalette} 
+					<div className="drawer__content">
+						<div style={{marginTop: '-10rem'}}>
+						<Typography variant="h4" noWrap align="center" className="drawer__heading">
+							Create Your Own Palette
+						</Typography>
+						<div className="drawer__button">
+							<Button variant="contained" 
+								color="secondary" 
+								onClick={this.clearPalette} 
+								>
+								Clear Palette
+							</Button>
+							<Button variant="contained" 
+								color="primary" 
+								onClick={this.randomColor}
+								disabled={isFull}
 							>
-							Clear Palette
-						</Button>
-						<Button variant="contained" 
-							color="primary" 
-							onClick={this.randomColor}
+								Random Color
+							</Button>
+						</div>
+						<ColorPiker color={curColor} handleChange={this.handleChange} />
+
+						<Form curColor={curColor} 
+							colorList={colorList} 
+							addColor={this.handleAddColor} 
+							type="dr" 
 							disabled={isFull}
 						>
-							Random Color
-						</Button>
+							<Button variant="contained" 
+								style={{ background: curColor }} color="secondary" 
+								type="submit" 
+								disabled={isFull}
+								fullWidth
+							>
+								Add Color
+							</Button> 
+						</Form>
+						</div>
 					</div>
-					<ColorPiker color={curColor} handleChange={this.handleChange} />
-
-					<Form curColor={curColor} 
-						colorList={colorList} 
-						addColor={this.handleAddColor} 
-						type="dr" 
-						rule="Add Color"
-						disabled={isFull}
-					/>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {

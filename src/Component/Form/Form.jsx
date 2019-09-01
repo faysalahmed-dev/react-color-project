@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
 import './Form.scss';
@@ -60,15 +59,18 @@ class Form extends Component {
 	};
 	render() {
 		const { name, error, errorMes } = this.state;
-          const { curColor, rule, disabled } = this.props;
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
-					<TextField id="standard-name" value={name} onChange={this.handleChange} margin="normal" />
+					<TextField id="standard-name" 
+						value={name} 
+						onChange={this.handleChange} 
+						margin="normal" 
+						fullWidth 
+						className="input"
+					/>
 					{error && <p>{errorMes}</p>}
-                         <Button variant="contained" style={{ background: curColor }} color="secondary" type="submit" disabled={disabled}>
-						{rule}
-					</Button>
+					{this.props.children}
 				</form>
 			</div>
 		);
