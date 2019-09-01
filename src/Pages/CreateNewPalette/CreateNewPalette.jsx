@@ -17,6 +17,8 @@ import Form from '../../Component/Form/Form';
 import ColorPiker from '../../Component/ColorPiker/ColorPiker';
 import ColorBoxList from '../../Component/ColorBoxList/ColorBoxList';
 
+import NavBar from '../../Component/CreactPaletteNavBar/CreactpaletteNavBar'
+
 import './CreactNewPalette.scss'
 
 const drawerWidth = 300;
@@ -127,9 +129,6 @@ class CreateNewPalette extends React.Component {
 		this.props.handleSave(palette);
 		this.props.history.push('/');
 	};
-	handleGoBack = () => {
-		this.props.history.push('/')
-	}
 	onSortEnd = ({ oldIndex, newIndex }) => {
 		this.setState(({ colorList }) => ({
 			colorList: arrayMove(colorList, oldIndex, newIndex),
@@ -149,34 +148,12 @@ class CreateNewPalette extends React.Component {
 		const isFull =colorList.length >= maxColorBoxLength
 		return (
 			<div className={classes.root}>
-				<CssBaseline />
-				<AppBar
-					color="default"
-					position="fixed"
-					className={clsx(classes.appBar, {
-						[classes.appBarShift]: open
-					})}
-				>
-					<Toolbar>
-						<IconButton
-							color="inherit"
-							aria-label="open drawer"
-							onClick={this.handleDrawerOpen}
-							edge="start"
-							className={clsx(classes.menuButton, open && classes.hide)}
-						>
-							<MenuIcon />
-						</IconButton>
-						<Typography variant="h5" noWrap>
-							Persistent drawer
-						</Typography>
-						<Form colorList={paletteList} handleSave={this.handleSave} type="app" rule='Save'/>
-						<Button variant="contained"
-							color="primary"
-							onClick={this.handleGoBack}
-						>Go Back</Button>
-					</Toolbar>
-				</AppBar>
+				<NavBar classes={classes} 
+					handleDrawerOpen={this.handleDrawerOpen} 
+					colorList={paletteList} 
+					open={open}
+					handleSave={this.handleSave}
+				/>
 				<Drawer
 					className={classes.drawer}
 					variant="persistent"
