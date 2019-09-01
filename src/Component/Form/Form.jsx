@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 import './Form.scss';
 
-class Form extends Component {
+class Form extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: '',
 			error: false,
-			errorMes: ''
+			errorMes: '', 
 		};
 	}
 	handleChange = (e) => {
@@ -41,7 +41,7 @@ class Form extends Component {
 			}
 		}
 		return { error: false };
-	};
+	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const valid = this.checkInputIsValid(this.state.name, this.props.curColor, this.props.type);
@@ -59,6 +59,7 @@ class Form extends Component {
 	};
 	render() {
 		const { name, error, errorMes } = this.state;
+		
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
@@ -68,6 +69,7 @@ class Form extends Component {
 						margin="normal" 
 						fullWidth 
 						className="input"
+						
 					/>
 					{error && <p>{errorMes}</p>}
 					{this.props.children}
