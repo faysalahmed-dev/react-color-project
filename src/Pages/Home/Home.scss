@@ -1,10 +1,10 @@
 .home-page {
 	display: flex;
 	width: 100%;
+	min-height: 100vh;
 	background: blue;
 	background-attachment: fixed;
 	justify-content: center;
-	align-items: center;
 	padding: 2rem 0;
 	&__container {
 		width: 50%;

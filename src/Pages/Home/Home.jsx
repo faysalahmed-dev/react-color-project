@@ -4,7 +4,7 @@ import PaletteList from '../../Component/PaletteList/PaletteList';
 import './Home.scss';
 
 
-const Home = ({ palette }) => (
+const Home = ({ palette, handleDeletePalette }) => (
 	<div className='home-page'>
 		<div className='home-page__container'>
 			<nav>
@@ -12,7 +12,12 @@ const Home = ({ palette }) => (
 				<Link to="/createpalette">Creact New Palette</Link>
 			</nav>
 			<div className='home-page__list'>
-				{palette.map(({ id, ...others }) => <PaletteList key={id} {...others} id={id} />)}
+				{palette.map(({ id, ...others }) => <PaletteList 
+					key={id} 
+					{...others} 
+					id={id} 
+					handleDeletePalette={handleDeletePalette}
+				/>)}
 			</div>
 		</div>
 	</div>

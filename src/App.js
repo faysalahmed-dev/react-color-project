@@ -20,6 +20,11 @@ class App extends Component {
 	handleCreatePalette = (newPalette) => {
 		this.setState({ colorPalette: [ ...this.state.colorPalette, newPalette ] },this.saveDataLs);
 	};
+	deletePalette = (id) => {
+		this.setState(st => ({
+			colorPalette: st.colorPalette.filter(palette => palette.id !== id )
+		}), this.saveDataLs)
+	}
 	saveDataLs = () => {
 		localStorage.setItem('palette',JSON.stringify(this.state.colorPalette))
 	}
@@ -38,7 +43,7 @@ class App extends Component {
 					<Route
 						exact
 						path="/"
-						render={(routingOpt) => <Home palette={colorPalette} {...routingOpt} />}
+						render={(routingOpt) => <Home palette={colorPalette} handleDeletePalette={this.deletePalette} {...routingOpt} />}
 					/>
 					<Route
 						exact

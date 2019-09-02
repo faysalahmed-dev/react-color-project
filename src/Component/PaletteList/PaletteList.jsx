@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 const styles = {
 	root: {
@@ -10,7 +11,12 @@ const styles = {
 		background: '#fff',
 		borderRadius: '.3rem',
 		cursor: 'pointer',
-		paddingBottom: '0'
+		paddingBottom: '0',
+		position: 'relative',
+		overflow: 'hidden',
+		"&:hover #delete" : {
+			opacity: '1'
+		}
 	},
 	footer: {
 		display: 'flex',
@@ -27,14 +33,49 @@ const styles = {
 		gridAutoRows: '25%',
 		borderRadius: '.3rem',
 		overflow: 'hidden'
+	}, 
+	delete: {
+		position: 'absolute',
+		top:'0',
+		right: '0',
+		padding: '.5rem .7rem',
+		background: '#f6b906',
+		opacity: '0',
+		transition: 'all .4s',
+		'&:hover svg': {
+			transform:'scale(1.1)'
+		},
+		'&:active svg': {
+			transform: 'scale(.9)'
+		}
+	},
+	deleteIcon : {
+		fontSize: '2rem',
+		color: '#fff',
 	}
+	
 };
 
-const paletteList = ({ id, paletteName, emoji, colors, classes, history }) => {
-     const handleClick = (id) => history.push(`/palette/${id}`);
-     
+const paletteList = (props) => {
+	const { id,
+			paletteName,
+			emoji,
+			colors,
+			classes,
+			history,
+			handleDeletePalette } = props
+
+	const handleClick = (id) => history.push(`/palette/${id}`);
+	
+	const handleDelete = (e) => {
+		e.stopPropagation()
+		handleDeletePalette(id)
+	}
 	return (
 		<div className={classes.root} onClick={() => handleClick(id)}>
+			<div className={classes.delete} id="delete" onClick={handleDelete}>
+				<DeleteOutlinedIcon className={classes.deleteIcon}/>
+			</div>
 			<div className={classes.miniPalette}>
 				{colors.map((color) => (
 					<div key={color.name} className={classes.minBox} style={{ background: color.color }} />
