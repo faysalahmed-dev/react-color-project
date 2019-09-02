@@ -12,13 +12,17 @@ import SinglePalette from './Component/SingleColorPalette/SinglePalette';
 class App extends Component {
 	constructor(props) {
 		super(props);
+		const plaette = JSON.parse(localStorage.getItem('palette'))
 		this.state = {
-			colorPalette: SeedColors
+			colorPalette: plaette || SeedColors
 		};
 	}
 	handleCreatePalette = (newPalette) => {
-		this.setState({ colorPalette: [ ...this.state.colorPalette, newPalette ] });
+		this.setState({ colorPalette: [ ...this.state.colorPalette, newPalette ] },this.saveDataLs);
 	};
+	saveDataLs = () => {
+		localStorage.setItem('palette',JSON.stringify(this.state.colorPalette))
+	}
 	render() {
 		const {colorPalette} = this.state
 		return (
