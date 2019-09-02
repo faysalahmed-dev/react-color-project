@@ -1,11 +1,14 @@
+
 .home-page {
 	display: flex;
 	width: 100%;
 	min-height: 100vh;
-	background: blue;
 	background-attachment: fixed;
 	justify-content: center;
 	padding: 2rem 0;
+	background-size: cover;
+	background-position: center;
+	/* background by SVGBackgrounds.com */
 	&__container {
 		width: 50%;
 	}

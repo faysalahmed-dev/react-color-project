@@ -26,10 +26,10 @@ class App extends Component {
 		}), this.saveDataLs)
 	}
 	saveDataLs = () => {
-		localStorage.setItem('palette',JSON.stringify(this.state.colorPalette))
+		localStorage.setItem('palette',JSON.stringify(this.state.colorPalette));
 	}
 	render() {
-		const {colorPalette} = this.state
+		const {colorPalette} = this.state;
 		return (
 			<div className="App">
 				<Switch>
