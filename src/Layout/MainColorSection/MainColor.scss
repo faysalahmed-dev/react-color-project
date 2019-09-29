@@ -1,9 +1,19 @@
 @import '../../Sass/mixin';
+@import '../../Sass/mediaQuery';
 
 .main-color-section {
-	height: var(--colors-pal-heigth);
 	display: grid;
-	grid-template-columns: repeat(5,20%);
+	min-height: 100vh;
+	grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+	grid-auto-rows: 10rem;
+	@include responsive (md) {
+		grid-auto-rows: 100%;
+	}
+	@include responsive (lg) {
+		grid-template-columns: repeat(5, 20%);
+		grid-auto-rows: 1fr;
+		height: var(--colors-pal-heigth);
+	}
 	& .go-back {
 		@include centerItem;
 		background: #000;

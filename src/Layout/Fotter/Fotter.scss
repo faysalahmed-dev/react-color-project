@@ -2,8 +2,8 @@
 .fotter {
 	@include centerItem;
 	width: 100%;
-	height: var(--fotter-hieght);
-	justify-content: flex-end;
+	justify-content: center;
+	padding: .8rem 0;
 	p {
 		padding-right: 3rem;
 		font-size: 1.4rem;

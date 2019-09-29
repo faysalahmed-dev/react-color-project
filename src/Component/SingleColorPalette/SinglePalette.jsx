@@ -7,9 +7,10 @@ import Footer from '../../Layout/Fotter/Fotter';
 
 const styles = {
 	root: {
-		overflow: 'hidden'
+		overflow: 'hidden',
 	}
 };
+const row = {gridAutoRows:'50%'}
 
 class SinglePalette extends Component {
 	constructor(props) {
@@ -37,7 +38,7 @@ class SinglePalette extends Component {
 		return (
 			<div className={this.props.classes.root}>
 				<Header showSlider={false} changeFormat={this.changeFormat} />
-				<MainColorSection colors={this.shade} format={format} link={false} rows={50}>
+				<MainColorSection colors={this.shade} format={format} link={false}>
 					<div className="go-back">
 						<button onClick={this.handleGoBack}>
 							Go Back

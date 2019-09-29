@@ -10,7 +10,7 @@ const dragableColorBox = ({ color, name,removeBox}) => {
 		<div style={{ backgroundColor: color }} className="dragable-color-box">
 			<div>
 				<span className="name">{name}</span>
-                    <span onClick={() => removeBox(name)}>{<DeleteOutlinedIcon className="delete-btn"/>}</span>
+				<span onClick={() => removeBox(name)}>{<DeleteOutlinedIcon className="delete-btn"/>}</span>
 			</div>
 		</div>
 	);

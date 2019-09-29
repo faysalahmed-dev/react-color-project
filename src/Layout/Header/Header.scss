@@ -1,16 +1,38 @@
 @import '../../Sass/mixin';
+@import '../../Sass/mediaQuery';
 .header {
-	display: flex;
-	height: var(--header-height);
+	@include responsive (md) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 	&__logo {
 		padding: 0 1rem;
 		background: rgb(214, 213, 213);
-		@include centerItem;
+		text-align: center;
+		@include responsive (md) {
+			@include centerItem;
+			flex-basis: 100%;
+			padding: 1rem 0;
+		}
+		@include responsive (lg) {flex-basis: 30%;}
 		a {
 			text-decoration: none;
 			font-size: 2rem;
 			text-transform: uppercase;
 			color: var(--logo);
 		}
+	}
+	&__tools {
+		padding:1rem 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		@include responsive (md) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		@include responsive (lg) {flex-basis: 70%;}
+
 	}
 }

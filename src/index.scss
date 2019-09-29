@@ -29,3 +29,12 @@ body {
 h1,h2,h3,h4,h5,h6,a,p,button{
 	font-family: var(--font-family) !important;
 }
+.MuiBackdrop-root{
+     background-color: rgba(000,000,000,.05) !important;
+}
+.MuiPaper-elevation24{
+	box-shadow: 0 1rem 1rem rgba(#000,.1) !important;
+}
+.MuiDialog-container {
+	background: rgba(0, 0, 0, 0.5);
+}

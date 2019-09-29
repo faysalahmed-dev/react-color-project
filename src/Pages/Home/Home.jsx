@@ -9,16 +9,20 @@ const Home = ({ palette, handleDeletePalette }) => (
 	<div className='home-page' style={{backgroundImage: `url(${Bg})`}}>
 		<div className='home-page__container'>
 			<nav>
-				<h1>React Color Palette</h1>
+				<h1>ColorsHints</h1>
 				<Link to="/createpalette">Creact New Palette</Link>
 			</nav>
 			<div className='home-page__list'>
-				{palette.map(({ id, ...others }) => <PaletteList 
-					key={id} 
-					{...others} 
-					id={id} 
-					handleDeletePalette={handleDeletePalette}
-				/>)}
+				{
+				palette.map(({ id,...others }) => 
+					<PaletteList 
+						key={id} 
+						{...others} 
+						id={id} 
+						handleDeletePalette={handleDeletePalette}
+			/>
+		)
+	}
 			</div>
 		</div>
 	</div>

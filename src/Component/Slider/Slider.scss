@@ -1,4 +1,5 @@
 @import '../../Sass/mixin';
+@import '../../Sass/mediaQuery';
 .color-slider {
 	@include centerItem;
 	&__lavel-text {
@@ -7,22 +8,26 @@
 	}
 	&__container {
 		@include centerItem;
-		width: 30rem;
-		padding: 0 1rem;
+		width: 18rem;
+		padding:1.5rem 1rem;
+		@include responsive (md) {
+			width: 25rem;
+			padding: 0 1rem;
+		}
 	}
 }
 
 .rc-slider-rail {
-	height: .8rem;
+	height: .6rem;
 }
 .rc-slider-track {
-	height: .8rem;
+	height: .6rem;
 }
 .rc-slider-handle {
 	margin-left: -.7rem;
-	margin-top: -0.75rem;
-	width: 2rem;
-	height: 2rem;
+	margin-top: -0.6rem;
+	width: 1.7rem;
+	height: 1.7rem;
 	border: none;
 	background-color: #314d69;
 }

@@ -10,8 +10,10 @@ const Header = ({ colorShade, changeColorShade, lavel, changeFormat, showSlider 
 			<div className="header__logo">
 				<Link to="/">React Color Piker</Link>
 			</div>
-			{showSlider && <Slider colorShade={colorShade} changeColorShade={changeColorShade} lavel={lavel} />}
-			<ColorSelector changeFormat={changeFormat} />
+			<div className="header__tools">
+				{showSlider && <Slider colorShade={colorShade} changeColorShade={changeColorShade} lavel={lavel} />}
+				<ColorSelector changeFormat={changeFormat} />
+			</div>
 		</header>
 	);
 };

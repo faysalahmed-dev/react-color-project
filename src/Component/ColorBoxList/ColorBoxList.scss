@@ -6,3 +6,17 @@
      grid-auto-rows: 25%;
      // overflow: hidden;
 }
+.drag-enter {
+     opacity: 0;
+}
+.drag-enter-active {
+     opacity: 1;
+     transition: all .3s;
+}
+.drag-exit {
+     opacity: 1;
+}
+.drag-exit-active {
+     opacity: 0;
+     transition: all .3s;
+}

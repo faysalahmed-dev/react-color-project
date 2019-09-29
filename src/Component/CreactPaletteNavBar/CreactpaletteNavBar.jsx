@@ -76,7 +76,6 @@ class CreactpaletteNavBar extends Component {
                                    >
                                         <MenuIcon />
                                    </IconButton>
-                                   
                                         <Typography variant="h4" noWrap>
                                              Create New Palette
                                         </Typography>

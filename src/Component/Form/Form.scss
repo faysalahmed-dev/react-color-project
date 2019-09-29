@@ -1,4 +1,10 @@
-.input {
-     font-size: 1.6rem !important;
+#standard-name {
      font-family: var(--font-family) !important;
+     font-size: 1.8rem !important;
+}
+.error{
+     font-size:1.6rem;
+     padding: .5rem 0;
+     color: rgb(255, 113, 31);
+     text-transform: capitalize;
 }

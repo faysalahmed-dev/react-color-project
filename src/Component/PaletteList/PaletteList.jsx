@@ -63,19 +63,23 @@ const paletteList = (props) => {
 			colors,
 			classes,
 			history,
+			deleteAble,
 			handleDeletePalette } = props
 
 	const handleClick = (id) => history.push(`/palette/${id}`);
 	
 	const handleDelete = (e) => {
 		e.stopPropagation()
-		handleDeletePalette(id)
+		if (deleteAble) {
+			handleDeletePalette(id)
+		}
 	}
 	return (
 		<div className={classes.root} onClick={() => handleClick(id)}>
-			<div className={classes.delete} id="delete" onClick={handleDelete}>
+			
+			{deleteAble &&(<div className={classes.delete} id="delete" onClick={handleDelete}>
 				<DeleteOutlinedIcon className={classes.deleteIcon}/>
-			</div>
+			</div>)}
 			<div className={classes.miniPalette}>
 				{colors.map((color) => (
 					<div key={color.name} className={classes.minBox} style={{ background: color.color }} />

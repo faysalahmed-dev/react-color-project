@@ -1,0 +1,25 @@
+@mixin responsive($type) {
+     $mobile : 576px;
+     $tab: 900px;
+     $laptop : 1600px;
+     @if $type == sm {
+          @media screen and (max-width: $mobile){
+               @content;
+          }
+     }
+     @if $type == md {
+          @media (min-width : $mobile + 1) {
+               @content;
+          }
+     }
+     @if $type == lg {
+          @media (min-width : $tab + 1){
+               @content;
+          }
+     }
+     @else if $type == xl {
+          @media (min-width: $laptop + 1px) {
+               @content;
+          }
+     }
+}

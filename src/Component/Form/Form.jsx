@@ -68,10 +68,8 @@ class Form extends PureComponent {
 						onChange={this.handleChange} 
 						margin="normal" 
 						fullWidth 
-						className="input"
-						
 					/>
-					{error && <p>{errorMes}</p>}
+					{error && <p className='error'>{errorMes}</p>}
 					{this.props.children}
 				</form>
 			</div>
