@@ -9,8 +9,7 @@
     },
     "description": "React material ui color project. This project build with react, react-router, react-material-ui. this project build by Faysal Ahmed for learning purpose",
     "engines": {
-        "node": "12.14.1",
-        "vscode": "^1.22.0"
+        "node": "12.14.1"
     },
     "main": "src/index.js",
     "repository": {
