@@ -1,40 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,400,600&display=swap');
 :root {
-	--font-dark : rgba(0, 0, 0, 0.767);
-	--font-white: #fff;
-	--font-family: 'Josefin Sans', sans-serif;
-	--header-height: 8vh;
-	--colors-pal-heigth: 88vh;
-	--fotter-hieght: 4vh;
-	--white-light-bg: rgba(255, 255, 255, .6);
-	--overlay-transition: all .5s ease-in-out;
-	--transition-dur: .3s;
-	--copy-mas-transition-del: .2s;
+    --font-dark: rgba(0, 0, 0, 0.767);
+    --font-white: #fff;
+    --font-family: 'Josefin Sans', sans-serif;
+    --header-height: 8vh;
+    --colors-pal-heigth: 88vh;
+    --fotter-hieght: 4vh;
+    --white-light-bg: rgba(255, 255, 255, 0.6);
+    --overlay-transition: all 0.5s ease-in-out;
+    --transition-dur: 0.3s;
+    --copy-mas-transition-del: 0.2s;
 }
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-	font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
-  font-family: var(--font-family);
-  line-height: 1.6;
-  font-weight: 400;
+    font-family: var(--font-family);
+    line-height: 1.6;
+    font-weight: 400;
 }
-h1,h2,h3,h4,h5,h6,a,p,button{
-	font-family: var(--font-family) !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+button {
+    font-family: var(--font-family) !important;
 }
-.MuiBackdrop-root{
-     background-color: rgba(000,000,000,.05) !important;
+.MuiBackdrop-root {
+    background-color: rgba(000, 000, 000, 0.05) !important;
 }
-.MuiPaper-elevation24{
-	box-shadow: 0 1rem 1rem rgba(#000,.1) !important;
+.MuiPaper-elevation24 {
+    box-shadow: 0 1rem 1rem rgba(#000, 0.1) !important;
 }
 .MuiDialog-container {
-	background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
 }

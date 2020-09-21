@@ -1,22 +1,24 @@
+@import '../../Sass/mediaQuery';
 .colorbox-list {
-     display: grid;
-     width: 100%;
-     height: 100%;
-     grid-template-columns: repeat(5,1fr);
-     grid-auto-rows: 25%;
-     // overflow: hidden;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    @include responsive(sm) {
+        grid-template-columns: 1fr;
+    }
 }
 .drag-enter {
-     opacity: 0;
+    opacity: 0;
 }
 .drag-enter-active {
-     opacity: 1;
-     transition: all .3s;
+    opacity: 1;
+    transition: all 0.3s;
 }
 .drag-exit {
-     opacity: 1;
+    opacity: 1;
 }
 .drag-exit-active {
-     opacity: 0;
-     transition: all .3s;
+    opacity: 0;
+    transition: all 0.3s;
 }

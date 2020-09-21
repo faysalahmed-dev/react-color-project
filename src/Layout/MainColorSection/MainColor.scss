@@ -2,35 +2,29 @@
 @import '../../Sass/mediaQuery';
 
 .main-color-section {
-	display: grid;
-	min-height: 100vh;
-	grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-	grid-auto-rows: 10rem;
-	@include responsive (md) {
-		grid-auto-rows: 100%;
-	}
-	@include responsive (lg) {
-		grid-template-columns: repeat(5, 20%);
-		grid-auto-rows: 1fr;
-		height: var(--colors-pal-heigth);
-	}
-	& .go-back {
-		@include centerItem;
-		background: #000;
-		color: #fff;
-		font-size: 2rem;
-		text-transform: uppercase;
-		button {
-			padding: .7rem 2rem;
-			display: inline-block;
-			outline: none;
-			border: none;
-			font-size: 1.5rem;
-			line-height: 1.5;
-			font-family: inherit;
-			cursor: pointer;
-			background: rgba(#fff,.5);
-			text-transform: uppercase;
-		}
-	}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-auto-rows: 1fr;
+    @include responsive(lgSmall) {
+        grid-auto-rows: 20rem;
+    }
+    & .go-back {
+        @include centerItem;
+        background: #000;
+        color: #fff;
+        font-size: 2rem;
+        text-transform: uppercase;
+        button {
+            padding: 0.7rem 2rem;
+            display: inline-block;
+            outline: none;
+            border: none;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            font-family: inherit;
+            cursor: pointer;
+            background: rgba(#fff, 0.5);
+            text-transform: uppercase;
+        }
+    }
 }

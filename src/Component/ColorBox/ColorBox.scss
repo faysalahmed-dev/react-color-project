@@ -1,76 +1,77 @@
 @import '../../Sass/mixin';
 
 .color-box {
-	cursor: pointer;
-	position: relative;
-	&__overlay {
-          transform: scale(0.1);
-		width: 100%;
-		height: 100%;
-		z-index: 0;
-		&_show {
-			transition: var(--overlay-transition);
-			position: absolute;
-			z-index: 10;
-			transform: scale(50);
-		}
-	}
-	&__copied-mas {
-			position: fixed;
-			@include centerItem;
-			flex-direction: column;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			transform: scale(0.1);
-			opacity: 0;
-			text-align: center;
-			text-transform: uppercase;
-            h1{
-                  font-size: 5rem;
-                  font-weight: 400;
-                  background: var(--white-light-bg);
-                  width: 100%;
-                  padding: .5rem 0;
-            }
-            p{
-               font-size: 2.5rem;
-               padding: 1rem 0;
-            }
-          &_show{
-                  transform: scale(1);
-                  opacity: 1;
-                  z-index: 25;
-                  transition: all var(--transition-dur) var(--copy-mas-transition-del) ease-in-out;
-          }
-      }
-	&__button {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-		padding: .7rem 2rem;
-		display: inline-block;
-		background: var(--white-light-bg);
-		outline: none;
-		border: none;
-		font-size: 1.6rem;
-		line-height: 1.5;
-		font-family: inherit;
-		opacity: 0;
-		cursor: pointer;
-		transition: opacity var(--transition-dur);
-	}
-	&__name {
-		@include moreBtn(left);
-	}
-	&__more-btn {
-		@include moreBtn(right);
-		line-height: 1.5;
-		background: var(--white-light-bg);
-	}
-	&:hover &__button {
-		opacity: 1;
-	}
+    cursor: pointer;
+    position: relative;
+    &__overlay {
+        transform: scale(0.1);
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        &_show {
+            transition: var(--overlay-transition);
+            position: absolute;
+            z-index: 10;
+            transform: scale(50);
+        }
+    }
+    &__copied-mas {
+        position: fixed;
+        @include centerItem;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform: scale(0.1);
+        opacity: 0;
+        text-align: center;
+        text-transform: uppercase;
+        h1 {
+            font-size: 5rem;
+            font-weight: 400;
+            background: var(--white-light-bg);
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+        p {
+            font-size: 2.5rem;
+            padding: 1rem 0;
+        }
+        &_show {
+            transform: scale(1);
+            opacity: 1;
+            z-index: 25;
+            transition: all var(--transition-dur) var(--copy-mas-transition-del)
+                ease-in-out;
+        }
+    }
+    &__button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.7rem 2rem;
+        display: inline-block;
+        background: var(--white-light-bg);
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        font-family: inherit;
+        opacity: 0;
+        cursor: pointer;
+        transition: opacity var(--transition-dur);
+    }
+    &__name {
+        @include moreBtn(left);
+    }
+    &__more-btn {
+        @include moreBtn(right);
+        line-height: 1.5;
+        background: var(--white-light-bg);
+    }
+    &:hover &__button {
+        opacity: 1;
+    }
 }

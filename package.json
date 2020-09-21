@@ -1,43 +1,57 @@
 {
-  "name": "color-react-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.3.3",
-    "@material-ui/icons": "^4.2.1",
-    "@material-ui/styles": "^4.3.3",
-    "chroma-js": "^2.0.4",
-    "emoji-mart": "^2.11.1",
-    "node-sass": "^4.12.0",
-    "rc-slider": "^8.6.13",
-    "react": "^16.9.0",
-    "react-color": "^2.17.3",
-    "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
-    "react-sortable-hoc": "^1.10.1",
-    "react-transition-group": "^4.3.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "color-react-app",
+    "version": "0.1.0",
+    "private": false,
+    "author": {
+        "email": "fahadfaysal146@gmail.com",
+        "name": "Faysal Ahmed",
+        "url": "https://github.com/faysal146"
+    },
+    "description": "React material ui color project. This project build with react, react-router, react-material-ui. this project build by Faysal Ahmed for learning purpose",
+    "engines": {
+        "node": "12.14.1",
+        "vscode": "^1.22.0"
+    },
+    "main": "src/index.js",
+    "repository": {
+        "url": "https://github.com/faysal146/react-color-project.git"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.3.3",
+        "@material-ui/icons": "^4.2.1",
+        "@material-ui/styles": "^4.3.3",
+        "chroma-js": "^2.0.4",
+        "emoji-mart": "^2.11.1",
+        "node-sass": "^4.12.0",
+        "rc-slider": "^8.6.13",
+        "react": "^16.9.0",
+        "react-color": "^2.17.3",
+        "react-copy-to-clipboard": "^5.0.1",
+        "react-dom": "^16.9.0",
+        "react-router-dom": "^5.0.1",
+        "react-scripts": "3.1.1",
+        "react-sortable-hoc": "^1.10.1",
+        "react-transition-group": "^4.3.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

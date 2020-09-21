@@ -1,24 +1,24 @@
 .MuiPaper-elevation4 {
-     box-shadow: none !important;
+    box-shadow: none !important;
 }
 
-.drawer{
-     &__content{
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 90%;
-          margin: auto;
-     }
-     &__heading {
-          padding: 1rem 0;
-          font-size: 1.7rem;
-     }
-     &__button{
-          padding: 2rem 0;
-          display: flex;
-          justify-content: space-between;
-     }
+.drawer {
+    &__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+    }
+    &__heading {
+        padding: 1rem 0;
+        font-size: 1.7rem;
+    }
+    &__button {
+        padding: 2rem 0;
+        display: flex;
+        justify-content: space-between;
+    }
 }

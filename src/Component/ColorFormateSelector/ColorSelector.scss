@@ -2,17 +2,18 @@
 @import '../../Sass/mediaQuery';
 
 .format-selector {
-     margin-right: 1rem;
-     @include responsive (md) {
-          margin-left: auto;
-     }
-     .MuiSelect-select:focus {
-          background: transparent;
-     }
+    margin-right: 1rem;
+    margin-left: auto;
+    @include responsive(md) {
+        margin-left: auto;
+    }
+    .MuiSelect-select:focus {
+        background: transparent;
+    }
 }
 
 .format-selector *,
 .MuiMenuItem-root {
-     font-size: 1.6rem !important;
-     font-family: inherit !important;
+    font-size: 1.6rem !important;
+    font-family: inherit !important;
 }

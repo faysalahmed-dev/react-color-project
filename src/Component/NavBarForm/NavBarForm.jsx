@@ -7,8 +7,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Form from '../Form/Form';
 import { withStyles } from '@material-ui/styles';
-import 'emoji-mart/css/emoji-mart.css'
-import { Picker } from 'emoji-mart'
 
 const styles = {
 	button: {
@@ -25,8 +23,6 @@ const styles = {
 class FormDialog extends React.Component {
 	state = {
 		open: false,
-		emojiShow: false,
-		emoji: ''
 	};
 	handleClickOpen = () => {
 		this.setState({ open: true });
@@ -34,19 +30,9 @@ class FormDialog extends React.Component {
 	handleClose = () => {
 		this.setState({ open: false });
 	};
-	handleEmojiClose=() => {
-		this.setState({ emojiShow: false });
-	}
-	handleEmojiSelect = () => {
-		this.setState({ emojiShow: true})
-	}
-	addEmoji = (emoji) => {
-		this.setState({emoji:emoji.native}, () => {
-			this.setState({ emojiShow: false })
-		})
-	}
+	
 	render() {
-		const { open, emoji, emojiShow } = this.state;
+		const { open } = this.state;
 		const { colorList, handleSave, classes } = this.props;
 		return (
 			<div>
@@ -66,12 +52,9 @@ class FormDialog extends React.Component {
 							handleSave={handleSave} 
 							type="app" 
 							rule="Save"
-							emoji={emoji}
+							dir='palette'
 						>
 							<DialogActions style={{display:'flex',justifyContent: 'space-between'}}>
-								<Button variant="contained" color="primary" className={classes.button} onClick={this.handleEmojiSelect}>
-									Emoji
-								</Button>
 								<div>
 									<Button
 										onClick={this.handleClose}
@@ -88,9 +71,6 @@ class FormDialog extends React.Component {
 							</DialogActions>
 						</Form>
 					</DialogContent>
-					<Dialog open={emojiShow} onClose={this.handleEmojiClose} >
-						<Picker onSelect={this.addEmoji}/>
-					</Dialog>
 				</Dialog>
 			</div>
 		);
